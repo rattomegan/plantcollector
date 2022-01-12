@@ -35,8 +35,7 @@ class Plant(models.Model):
 class Feeding(models.Model):
   date = models.DateField('Feeding Date')
   type = CharField(max_length=200)
-  instructions = models.TextField(max_length=400)
-
+  
   plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
   def __str__(self):
@@ -51,6 +50,11 @@ class Care(models.Model):
   )
   light = models.TextField(max_length=300)
   water = models.TextField(max_length=300)
+  instructions = models.TextField(
+    max_length=400,
+    default='Feed every two weeks in growing season',
+    editable=True
+  )
   toxicity = models.CharField(
     max_length=6,
     choices=TOXICITY,
