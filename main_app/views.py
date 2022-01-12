@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import plants as plants
+from .models import Plant
 
 
 # Create your views here.
@@ -10,4 +10,5 @@ def about(request):
   return render(request, 'about.html')
 
 def plants_index(request):
-  return render(request, 'plants/index.html', { 'plants': plants })
+  plants = Plant.objects.all()
+  return render(request, 'plants/index.html', {'plants': plants })
