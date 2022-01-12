@@ -4,20 +4,15 @@
 <h1>All Plants</h1>
 
 {% for plant in plants %}
-<div class="card">
-  <a href="{% url 'plants_detail' plant.id %}">
-    <div class="card-content">
-      <p>{{ plant.name }}</p>
-      <p>Latin Name: {{ plant.latin_name }}</p>
-      <p>Date Acquired: {{ plant.date_acquired }}</p>
-    </div>
-  </a>
-</div>
-
-
+  <div class="card">
+    <a href="{% url 'plants_detail' plant.id %}">
+      <div class="card-content">
+        <p>{{ plant.name }}</p>
+        <p>Latin Name: {{ plant.latin_name }}</p>
+        <p>Date Acquired: {{ plant.date_acquired }}</p>
+      </div>
+    </a>
+  </div>
 {% endfor %}
-
-
-
 
 {% endblock %}
