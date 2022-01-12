@@ -6,4 +6,9 @@
 <p>{{ plant.latin_name }}</p>
 <p>{{ plant.date_acquired }}</p>
 
+<div class="card-action">
+  <a href="{% url 'plants_update' plant.id %}">Edit</a>
+  <a href="{% url 'plants_delete' plant.id %}">Delete</a>
+</div>
+
 {% endblock %}

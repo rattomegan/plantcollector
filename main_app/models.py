@@ -22,4 +22,4 @@ class Plant(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('plants_detail', kwargs={'cat_id: self.id'})
+    return reverse('plants_detail', kwargs={'plant_id': self.id})

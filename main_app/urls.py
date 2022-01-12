@@ -15,4 +15,10 @@ urlpatterns = [
 
   # 'plants/create/' - Plants Create Route
   path('plants/create/', views.PlantCreate.as_view(), name='plants_create'),
+
+  # 'plants/<int:pk>/update/' - Update Plants Route
+  path('plants/<int:pk>/update/', views.PlantUpdate.as_view(), name='plants_update'),
+
+  # 'plants/<int:pk>/delete/' - Delete Plants Route
+  path('plants/<int:pk>/delete/', views.PlantDelete.as_view(), name='plants_delete'),
 ]
