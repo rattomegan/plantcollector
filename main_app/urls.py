@@ -9,4 +9,7 @@ urlpatterns = [
 
   # 'plants/' - Plants Index Route
   path('plants/', views.plants_index, name='plants_index'),
+
+  # 'plants/<int:plant_id>/' - Plants Detail View
+  path('plants/<int:plant_id>/', views.plants_detail, name='plants_detail')
 ]
