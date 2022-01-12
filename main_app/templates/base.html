@@ -13,24 +13,26 @@
   <title>Plant Collector</title>
 </head>
 <body>
-  <header>
+  <header class="navbar-fixed">
    <nav>
-     <ul>
-       <li><a href="{% url 'home' %}">Home</a></li>
-       <li><a href="{% url 'about' %}">About</a></li>
-       <li><a href="{% url 'plants_index' %}">All Plants</a></li>
-       <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
-     </ul>
+     <div class="nav-wrapper">
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'plants_index' %}">All Plants</a></li>
+        <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
+      </ul>
+    </div>
    </nav>
   </header>
   
-  <main>
+  <main class="container">
     {% block content %}
     {% endblock %}
   </main>
 
-  <footer>
-    <div>All Rights Reserved, &copy; 2021 Plant Collector &nbsp;</div>
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2021 Plant Collector &nbsp;</div>
   </footer>
 </body>
 </html>
