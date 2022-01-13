@@ -8,7 +8,8 @@
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
->
+  >
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <title>Plant Collector</title>
@@ -16,9 +17,10 @@
 <body>
   <header class="navbar-fixed">
    <nav>
-     <div class="nav-wrapper">
-      <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
+     <div class="nav-wrapper lime darken-4">
+      <a href="{% url 'home' %}" class="right brand-logo">PLANT COLLECTOR</a>
+      <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'plants_index' %}">All Plants</a></li>
         <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
@@ -27,6 +29,14 @@
       </ul>
     </div>
    </nav>
+
+   <ul class="sidenav" id="mobile-demo">
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'plants_index' %}">All Plants</a></li>
+    <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
+    <li><a href="{% url 'waterings_create' %}">Add Watering</a></li>
+    <li><a href="{% url 'waterings_index' %}">View Waterings</a></li>
+  </ul>
   </header>
   
   <main class="container">
@@ -34,8 +44,16 @@
     {% endblock %}
   </main>
 
-  <footer class="page-footer">
+  <footer class="page-footer lime darken-4">
     <div class="right">All Rights Reserved, &copy; 2021 Plant Collector &nbsp;</div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
+    });
+
+  </script>
 </body>
 </html>

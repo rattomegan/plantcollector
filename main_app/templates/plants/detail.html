@@ -30,7 +30,7 @@
       <div class="card-panel red-text center-align">{{plant.name}} may need some plant food.</div>
     {% endif %}
 
-    <table class="striped">
+    <table class="highlight">
       <thead>
         <tr><th>Date of Feeding</th><th>Type</th></tr>
       </thead>
@@ -59,7 +59,7 @@
           <div class="card-action">
             <form action="{% url 'remove_watering' plant.id watering.id %}" method="POST">
               {% csrf_token %}
-              <button type="remove" class="btn">Remove Watering</button>
+              <button type="remove" class="btn lime darken-3">Remove Watering</button>
             </form>
           </div>
         </div> 
@@ -80,7 +80,7 @@
           <div class="card-action" method="POST">
             <form action="{% url 'assoc_watering' plant.id watering.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Add Watering to Past Schedule</button>
+              <button type="submit" class="btn lime darken-3">Add Watering to Past Schedule</button>
             </form>
           </div>
         </div>
