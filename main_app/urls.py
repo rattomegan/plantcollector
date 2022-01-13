@@ -21,4 +21,6 @@ urlpatterns = [
 
   # 'plants/<int:pk>/delete/' - Delete Plants Route
   path('plants/<int:pk>/delete/', views.PlantDelete.as_view(), name='plants_delete'),
+
+  path('plants/<int:plant_id>/add_feeding/', views.add_feeding, name='add_feeding')
 ]

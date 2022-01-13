@@ -16,9 +16,37 @@
       </div>
     </div>
   </div>
+  <div class="col s6">
+    <form action="{% url 'add_feeding' plant.id %}" method="POST">
+      {% csrf_token %}
+      {{ feeding_form.as_p }}
+      <input type="submit" value="Add Feeding" class="btn">
+    </form>
+    <table class="striped">
+      <thead>
+        <tr><th>Date of Feeding</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        {% for feeding in plant.feeding_set.all %}
+          <tr>
+            <td>{{ feeding.date }}</td>
+            <td>{{ feeding.type }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
-
+<script>
+    const dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+</script>
 
 
 {% endblock %}
