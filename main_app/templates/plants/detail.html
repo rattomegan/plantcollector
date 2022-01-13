@@ -22,6 +22,14 @@
       {{ feeding_form.as_p }}
       <input type="submit" value="Add Feeding" class="btn">
     </form>
+    <br>
+
+    {% if plant.fed_for_summer %}
+      <div class="card-panel teal-text center-align">{{plant.name}} has been fed sufficiently for summer</div>
+    {% else %}
+      <div class="card-panel red-text center-align">{{plant.name}} may need some plant food.</div>
+    {% endif %}
+
     <table class="striped">
       <thead>
         <tr><th>Date of Feeding</th><th>Type</th></tr>

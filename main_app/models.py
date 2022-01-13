@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import CharField
 from django.urls import reverse
+from datetime import date
 
 # Create your models here.
 # class Plant():
@@ -31,6 +32,9 @@ class Plant(models.Model):
   def get_absolute_url(self):
     return reverse('plants_detail', kwargs={'plant_id': self.id})
 
+  def fed_for_summer(self):
+    year = date.today().year
+    return self.feeding_set.filter(date__range=[f'{year}-06-21', f'{year}-09-22']).count() >= 13
 
 class Feeding(models.Model):
   date = models.DateField('Feeding Date')
@@ -40,6 +44,9 @@ class Feeding(models.Model):
 
   def __str__(self):
     return f'{self.type} on {self.date}'
+
+  class Meta:
+    ordering = ['-date']
 
 
 class Care(models.Model):
