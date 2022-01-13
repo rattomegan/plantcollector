@@ -22,5 +22,11 @@ urlpatterns = [
   # 'plants/<int:pk>/delete/' - Delete Plants Route
   path('plants/<int:pk>/delete/', views.PlantDelete.as_view(), name='plants_delete'),
 
-  path('plants/<int:plant_id>/add_feeding/', views.add_feeding, name='add_feeding')
+  path('plants/<int:plant_id>/add_feeding/', views.add_feeding, name='add_feeding'),
+
+  path('waterings/', views.WateringList.as_view(), name='waterings_index'),
+  path('waterings/<int:pk>/', views.WateringDetail.as_view(), name='waterings_detail'),
+  path('waterings/create/', views.WateringCreate.as_view(), name='waterings_create'),
+  path('waterings/<int:pk>/update/', views.WateringUpdate.as_view(), name='waterings_update'),
+  path('waterings/<int:pk>/delete/', views.WateringDelete.as_view(), name='waterings_delete'),
 ]

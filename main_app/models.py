@@ -21,10 +21,21 @@ TOXICITY = (
   ('None', 'No or low toxicity')
 )
 
+class Watering(models.Model):
+  date = models.DateField('Watering Date')
+
+  def __str__(self):
+    return f'Watering on {self.date}'
+
+  def get_absolute_url(self):
+    return reverse('waterings_detail', kwargs={'pk': self.id})
+
 class Plant(models.Model):
   name = models.CharField(max_length=200)
   latin_name = models.CharField(max_length=200)
   date_acquired = models.DateField()
+  # Add relationship to Watering model
+  waterings = models.ManyToManyField(Watering)
 
   def __str__(self):
     return self.name
@@ -38,7 +49,11 @@ class Plant(models.Model):
 
 class Feeding(models.Model):
   date = models.DateField('Feeding Date')
-  type = CharField(max_length=200)
+  type = CharField(
+    max_length=200,
+    default='Plant Food',
+    editable=True
+  )
   
   plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
