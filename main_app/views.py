@@ -19,9 +19,12 @@ def plants_index(request):
 def plants_detail(request, plant_id):
   plant = Plant.objects.get(id=plant_id)
   feeding_form = FeedingForm()
+  # find all waterings not associated with this plant then pass it down as a 'waterings' variable
+  waterings_plant_didnt_get = Watering.objects.exclude(id__in=plant.waterings.all().values_list('id'))
   return render(request, 'plants/detail.html', { 
     'plant': plant,
-    'feeding_form': feeding_form
+    'feeding_form': feeding_form,
+    'waterings': waterings_plant_didnt_get
   })
 
 class PlantCreate(CreateView):
@@ -64,3 +67,11 @@ class WateringUpdate(UpdateView):
 class WateringDelete(DeleteView):
   model = Watering
   success_url = '/waterings/'
+
+def assoc_watering(request, plant_id, watering_id):
+  Plant.objects.get(id=plant_id).waterings.add(watering_id)
+  return redirect('plants_detail', plant_id=plant_id)
+
+def remove_watering(request, plant_id, watering_id):
+  Plant.objects.get(id=plant_id).waterings.remove(watering_id)
+  return redirect('plants_detail', plant_id=plant_id)

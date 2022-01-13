@@ -45,6 +45,51 @@
     </table>
   </div>
 </div>
+<hr>
+
+<div class="row">
+  <div class="col s6">
+    <h3>Waterings for your {{ plant.name }}</h3>
+    {% if plant.waterings.count %}
+      {% for watering in plant.waterings.all %}
+        <div class="card">
+          <div class="card-content">
+            <p>Watered on {{ watering.date }}</p>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'remove_watering' plant.id watering.id %}" method="POST">
+              {% csrf_token %}
+              <button type="remove" class="btn">Remove Watering</button>
+            </form>
+          </div>
+        </div> 
+      {% endfor %}
+    {% else %}
+        <p>No Record of Watering</p>
+    {% endif %}
+  </div>
+
+  <div class="col s6">
+    <h4>Waterings your {{ plant.name }} was not included in.</h4>
+    {% if waterings.count %}
+      {% for watering in waterings.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">{{ watering.date }}</span>
+          </div>
+          <div class="card-action" method="POST">
+            <form action="{% url 'assoc_watering' plant.id watering.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add Watering to Past Schedule</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else%}
+      <h4>Your {{ plant.name }} has been included in every watering.</h4>
+    {% endif %}
+  </div>
+</div>
 
 <script>
     const dateEl = document.getElementById('id_date');
