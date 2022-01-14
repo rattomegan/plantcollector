@@ -29,7 +29,7 @@ def plants_detail(request, plant_id):
 
 class PlantCreate(CreateView):
   model = Plant 
-  fields = '__all__'
+  fields = ['name', 'latin_name', 'date_acquired']
   success_url = '/plants/'
 
 class PlantUpdate(UpdateView):
