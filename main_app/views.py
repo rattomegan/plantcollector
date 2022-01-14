@@ -72,6 +72,6 @@ def assoc_watering(request, plant_id, watering_id):
   Plant.objects.get(id=plant_id).waterings.add(watering_id)
   return redirect('plants_detail', plant_id=plant_id)
 
-def remove_watering(request, plant_id, watering_id):
+def unassoc_watering(request, plant_id, watering_id):
   Plant.objects.get(id=plant_id).waterings.remove(watering_id)
   return redirect('plants_detail', plant_id=plant_id)

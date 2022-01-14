@@ -20,7 +20,7 @@
     <form action="{% url 'add_feeding' plant.id %}" method="POST">
       {% csrf_token %}
       {{ feeding_form.as_p }}
-      <input type="submit" value="Add Feeding" class="btn">
+      <input type="submit" value="Add Feeding" class="btn lime darken-3">
     </form>
     <br>
 
@@ -57,9 +57,9 @@
             <p>Watered on {{ watering.date }}</p>
           </div>
           <div class="card-action">
-            <form action="{% url 'remove_watering' plant.id watering.id %}" method="POST">
+            <form action="{% url 'unassoc_watering' plant.id watering.id %}" method="POST">
               {% csrf_token %}
-              <button type="remove" class="btn lime darken-3">Remove Watering</button>
+              <button type="submit" class="btn lime darken-3">Remove Watering</button>
             </form>
           </div>
         </div> 

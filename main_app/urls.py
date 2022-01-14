@@ -25,7 +25,7 @@ urlpatterns = [
   path('plants/<int:plant_id>/add_feeding/', views.add_feeding, name='add_feeding'),
 
   path('plants/<int:plant_id>/assoc_watering/<int:watering_id>/', views.assoc_watering, name='assoc_watering'),
-  path('plants/<int:plant_id>/remove_watering/<int:watering_id>/', views.remove_watering, name='remove_watering'),
+  path('plants/<int:plant_id>/unassoc_watering/<int:watering_id>/', views.unassoc_watering, name='unassoc_watering'),
 
 
   path('waterings/', views.WateringList.as_view(), name='waterings_index'),

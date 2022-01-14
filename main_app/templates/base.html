@@ -5,55 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-  >
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Plant Collector</title>
 </head>
 <body>
-  <header class="navbar-fixed">
-   <nav>
-     <div class="nav-wrapper lime darken-4">
-      <a href="{% url 'home' %}" class="right brand-logo">PLANT COLLECTOR</a>
-      <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'plants_index' %}">All Plants</a></li>
-        <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
-        <li><a href="{% url 'waterings_create' %}">Add Watering</a></li>
-        <li><a href="{% url 'waterings_index' %}">View Waterings</a></li>
-      </ul>
-    </div>
-   </nav>
+  <div class="wrapper">
 
-   <ul class="sidenav" id="mobile-demo">
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li><a href="{% url 'plants_index' %}">All Plants</a></li>
-    <li><a href="{% url 'plants_create' %}">Add Plant</a></li>
-    <li><a href="{% url 'waterings_create' %}">Add Watering</a></li>
-    <li><a href="{% url 'waterings_index' %}">View Waterings</a></li>
-  </ul>
-  </header>
-  
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
 
-  <footer class="page-footer lime darken-4">
-    <div class="right">All Rights Reserved, &copy; 2021 Plant Collector &nbsp;</div>
-  </footer>
+    <header class="header">
+      <a href="{% url 'home' %}" class="home-link">PLANT COLLECTOR</a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="{% url 'about' %}">About</a></li>
+          <li><a class="main-nav-link" href="{% url 'plants_index' %}">All Plants</a></li>
+          <li><a class="main-nav-link" href="{% url 'plants_create' %}">Add Plant</a></li>
+          <li><a class="main-nav-link" href="{% url 'waterings_create' %}">Add Watering</a></li>
+          <li><a class="main-nav-link" href="{% url 'waterings_index' %}">View Waterings</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="main">
+      {% block content %}
+      {% endblock %}
+    </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.sidenav');
-      var instances = M.Sidenav.init(elems, options);
-    });
+    <footer class="footer">
+      <div class="footer-text">All Rights Reserved, &copy; 2021 Plant Collector &nbsp;</div>
+    </footer>
 
-  </script>
+
+  </div>
 </body>
 </html>
