@@ -36,8 +36,8 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #333;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 /* ************************ */
@@ -56,7 +56,7 @@ body {
   align-items: center;
 }
 .heading-primary {
-  font-size: 4.8rem;
+  font-size: 6.4rem;
   font-weight: 600;
   margin-bottom: 3.2rem;
 }
@@ -74,6 +74,11 @@ body {
 
 .grid--col-2 {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--col-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
 }
 
 /* ************************ */
@@ -158,6 +163,48 @@ body {
 .about-text {
   font-size: 2.4rem;
   line-height: 1.3;
+}
+
+/* ************************ */
+/* PLANTS INDEX  */
+/* ************************ */
+.section-plants-index {
+  /* flex: 1 1 auto; */
+  display: flex;
+  flex-direction: column;
+  padding: 3.6rem;
+}
+
+.plant-card {
+  border-radius: 4px;
+  background-color: peru;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.plant-card--link:link,
+.plant-card--link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #111;
+  border-bottom: 1px solid transparent;
+  padding: 1.8rem 1rem;
+}
+
+.plant-card--link:hover,
+.plant-card--link:active {
+  color: #111;
+  border-bottom: 1px solid transparent;
+}
+
+.card-content p {
+  font-size: 1.4rem;
+  /* margin: .4rem; */
+}
+
+.card-title {
+  font-size: 2.4rem;
 }
 
 /* ************************ */
