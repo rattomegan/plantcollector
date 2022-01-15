@@ -34,3 +34,4 @@ urlpatterns = [
   path('waterings/<int:pk>/update/', views.WateringUpdate.as_view(), name='waterings_update'),
   path('waterings/<int:pk>/delete/', views.WateringDelete.as_view(), name='waterings_delete'),
 ]
+
